@@ -1,82 +1,61 @@
-# Lightweight React Template for KAVIA
+# Ocean Notes – React Frontend
 
-This project provides a minimal React template with a clean, modern UI and minimal dependencies.
+A simple personal notes manager with a modern, clean layout using the Ocean Professional theme.
 
 ## Features
 
-- **Lightweight**: No heavy UI frameworks - uses only vanilla CSS and React
-- **Modern UI**: Clean, responsive design with KAVIA brand styling
-- **Fast**: Minimal dependencies for quick loading times
-- **Simple**: Easy to understand and modify
+- Notes list in a sidebar with search
+- Create, edit (autosave), and delete notes
+- Local persistence (localStorage), no backend required
+- Accessible: keyboard navigation for list, ARIA labels, focus styles
+- Responsive layout (sidebar stacks below editor on small screens)
+- Smooth transitions, subtle shadows, rounded corners
+
+## Tech
+
+- React 18 + Create React App
+- No UI framework; custom CSS in `src/App.css`
+- State via React Context (`src/context/NotesContext.js`)
 
 ## Getting Started
 
-In the project directory, you can run:
+Install dependencies and start:
 
-### `npm start`
-
-Runs the app in development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-### `npm test`
-
-Launches the test runner in interactive watch mode.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-## Customization
-
-### Colors
-
-The main brand colors are defined as CSS variables in `src/App.css`:
-
-```css
-:root {
-  --kavia-orange: #E87A41;
-  --kavia-dark: #1A1A1A;
-  --text-color: #ffffff;
-  --text-secondary: rgba(255, 255, 255, 0.7);
-  --border-color: rgba(255, 255, 255, 0.1);
-}
+```
+npm install
+npm start
 ```
 
-### Components
+The app runs at http://localhost:3000
 
-This template uses pure HTML/CSS components instead of a UI framework. You can find component styles in `src/App.css`. 
+Environment variables in `.env` (if present) are respected by CRA but are not required. This app does not call a backend.
 
-Common components include:
-- Buttons (`.btn`, `.btn-large`)
-- Container (`.container`)
-- Navigation (`.navbar`)
-- Typography (`.title`, `.subtitle`, `.description`)
+## Usage
 
-## Learn More
+- New Note: Click “+ New Note” in header or sidebar
+- Search: Filter notes by title or content
+- Select: Click a note in the list to edit
+- Edit: Title and content autosave after a short pause
+- Delete: Use the Delete button in the editor toolbar
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Project Structure
 
-### Code Splitting
+- `src/App.js` – Main layout
+- `src/App.css` – Theme and layout styles
+- `src/context/NotesContext.js` – Notes state and persistence
+- `src/helpers/notesStorage.js` – Storage helpers and utilities
+- `src/components/` – UI components (Header, Sidebar, NoteList, NoteItem, Editor, EmptyState)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Tests
 
-### Analyzing the Bundle Size
+Basic smoke test exists. No additional tests were required.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Theme
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Ocean Professional palette:
+- Primary: #2563EB
+- Secondary/Success: #F59E0B
+- Error: #EF4444
+- Background: #f9fafb
+- Surface: #ffffff
+- Text: #111827
